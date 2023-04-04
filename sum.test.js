@@ -2,10 +2,21 @@ const sum = require('./sum');
 
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
+
+jest.setTimeout(30000);
+
 describe('Example test', () => {
     test('adds 1 + 2 to equal 3', () => {
         expect(sum(1, 2)).toBe(3);
-      });
+    });
+
+    test('adds 2 + 2 to equal 4', () => {
+        expect(sum(2, 2)).toBe(4);
+    });
+
+    test('adds 5 + 2 to equal 7', () => {
+        expect(sum(5, 2)).toBe(7);
+    });
       
       test('google search', async () => {
           let driver = await new Builder().forBrowser('chrome').build();
