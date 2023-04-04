@@ -2,7 +2,7 @@ const sum = require('./sum');
 
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
-describe('Test suite', () => {
+describe('Example test', () => {
     test('adds 1 + 2 to equal 3', () => {
         expect(sum(1, 2)).toBe(3);
       });
