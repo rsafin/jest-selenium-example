@@ -1,5 +1,7 @@
 const sum = require('./sum');
 const {Builder, By, Key, until} = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const firefox = require('selenium-webdriver/firefox');
 
 
 jest.setTimeout(30000);
@@ -17,9 +19,17 @@ describe('Example test', () => {
         expect(sum(5, 2)).toBe(7);
     });
     
+    const screen = {
+        width: 640,
+        height: 480
+    };
       
     test('google search', async () => {
-        let driver = await new Builder().forBrowser('chrome').build();
+        let driver = await new Builder()
+            .forBrowser('chrome')
+            .setChromeOptions(new chrome.Options().headless().windowSize(screen))
+            //.setFirefoxOptions(new firefox.Options().headless().windowSize(screen))
+            .build();
         try {
             await driver.get('http://www.google.com/ncr');
             await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
