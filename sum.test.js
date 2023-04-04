@@ -2,7 +2,7 @@ const sum = require('./sum');
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
 
-jest.setTimeout(30000);
+jest.setTimeout(20000);
 
 describe('Example test', () => {
     test('adds 1 + 2 to equal 3', () => {
